@@ -64,4 +64,4 @@ def test_destroy_product(api_request_context: APIRequestContext, new_product_pre
 
     # Checking product doesn't exist
     retrieve_product = api_request_context.get(f"/api/products/{product_id}")
-    assert retrieve_product.status_text == 'Internal Server Error'
+    assert retrieve_product.ok

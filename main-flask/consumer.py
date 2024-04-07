@@ -26,14 +26,16 @@ def callback(ch, method, properties, body):
         print('Product Created')
 
     elif properties.content_type == 'product_updated':
-        product = Product.session.get(data['id'])
+        # product = Product.query.get(data['id'])
+        product = db.session.get(Product, data['id'])
         product.title = data['title']
         product.image = data['image']
         db.session.commit()
         print('Product Updated')
 
     elif properties.content_type == 'product_deleted':
-        product = Product.session.get(data)
+        # product = Product.query.get(data)
+        product = db.session.get(Product, data)
         db.session.delete(product)
         db.session.commit()
         print('Product Deleted')

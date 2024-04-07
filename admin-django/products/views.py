@@ -1,6 +1,7 @@
 from rest_framework import viewsets, status
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from django.core.exceptions import ObjectDoesNotExist
 import random
 
 from .models import Product, User
@@ -22,9 +23,12 @@ class ProductViewSet(viewsets.ViewSet):
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
     def retrieve(self, request, pk=None):
-        product = Product.objects.get(id=pk)
-        serializer = ProductSerializer(product)
-        return Response(serializer.data)
+        try:
+            product = Product.objects.get(id=pk)
+            serializer = ProductSerializer(product)
+            return Response(serializer.data)
+        except ObjectDoesNotExist:
+            return Response(status=status.HTTP_204_NO_CONTENT)
 
     def update(self, request, pk=None):
         product = Product.objects.get(id=pk)
