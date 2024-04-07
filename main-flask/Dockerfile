@@ -4,6 +4,3 @@ WORKDIR /app
 COPY requirements.txt /app/requirements.txt
 RUN pip install -r requirements.txt
 COPY . /app
-
-#CMD ["python3", "manager.py"]
-CMD ["flask", "--app", "main", "run"]

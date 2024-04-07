@@ -4,3 +4,4 @@ mysqlclient
 django-mysql
 django-cors-headers
 pika
+python-dotenv

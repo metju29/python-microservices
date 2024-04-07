@@ -8,6 +8,8 @@
 ## Docker
 1. `docker-compose up`
 2. `docker-compose exec backend sh`
+3. `docker-compose up --build`
+4. `docker-compose up -d db`
 ## DBeaver
 To connect to the database via DBeaver:
 1. Right-click your connection, choose "Edit Connection"
