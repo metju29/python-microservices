@@ -5,7 +5,7 @@ from env_vars import AMQP_URL
 from main import Product, db
 
 
-params = pika.URLParameters(AMQP_URL)
+params = pika.URLParameters(f"{AMQP_URL}?heartbeat=60&connection_attempts=20&retry_delay=1")
 
 connection = pika.BlockingConnection(params)
 

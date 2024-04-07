@@ -13,7 +13,7 @@ logger = logging.getLogger(__name__)
 def product_id_get(api_request_context: APIRequestContext):
     product_list_get = api_request_context.get("/api/products")
 
-    assert product_list_get.ok
+    assert product_list_get.status == 200
     product_list = product_list_get.json()
     product_ids_lists = []
     for product in product_list:
@@ -24,12 +24,12 @@ def product_id_get(api_request_context: APIRequestContext):
 
 def test_get_products_list(api_request_context: APIRequestContext) -> None:
     products_list_get = api_request_context.get("/api/products")
-    assert products_list_get.ok
+    assert products_list_get.status == 200
     logger.info(f"Response_data: {products_list_get.json()}")
 
 
 def test_take_like(api_request_context: APIRequestContext, product_id_get) -> None:
     product_id = product_id_get
     like_take = api_request_context.post(f"/api/products/{product_id}/like")
-    assert like_take.ok
+    assert like_take.status == 200
     logger.info(f"Response_data: {like_take.json()}")
