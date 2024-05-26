@@ -6,7 +6,6 @@ import pika
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "admin.settings")
 django.setup()
 
-
 from env_vars import AMQP_URL
 from products.models import Product
 

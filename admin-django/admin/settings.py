@@ -127,6 +127,10 @@ STATIC_URL = 'static/'
 
 CORS_ORGIN_ALLOW_ALL = True
 
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000"
+]
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
