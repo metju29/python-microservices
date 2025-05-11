@@ -6,7 +6,6 @@
 
 ## Technologies
 
-* Python
 * Docker
 * FastAPI
 * Playwright
